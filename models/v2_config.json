@@ -1,0 +1,24 @@
+{
+  "version": "v2.0-dev",
+  "status": "EXPERIMENTAL. Fixed before the first V2 experiment (PLAN_V2.md). Changing a value means a new version string.",
+  "data": {
+    "source": "sackmann dev file only (2010-2024); the locked file is never read by V2 experiments",
+    "visibility": "tournament-completion, same MAX_DAYS as V1",
+    "stats_used": ["ace", "df", "svpt", "1stIn", "1stWon", "2ndWon", "SvGms", "bpSaved", "bpFaced"]
+  },
+  "priors": {
+    "adj_points": 300,
+    "surface_points": 300,
+    "raw_points": 240,
+    "raw_games": 36,
+    "raw_break_points": 15,
+    "h2h_matches": 5,
+    "pace_matches": 40
+  },
+  "half_lives_days": {"main": 240, "recent": 60},
+  "raw_window_matches": 20,
+  "elo_trend_days": 90,
+  "folds": {"train_from": 2015, "selection": [2020, 2021, 2022], "reporting": [2023, 2024]},
+  "lr_c_grid": [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1.0],
+  "xgb": "frozen Phase 5 'D XGB' params; tree count by early stopping inside each fold's training years"
+}

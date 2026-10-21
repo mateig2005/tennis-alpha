@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #080d0b;
+  --color-panel: #0d1512;
+  --color-raised: #121c18;
+  --color-line: #1e2a25;
+  --color-fg: #f3f7f5;
+  --color-muted: #8b9a93;
+  --color-dim: #5c6b64;
+  --color-mint: #39ff9c;
+  --color-sage: #86c9a8;
+  --color-coral: #ff4d5a;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-fg);
+  /* faint court-line grid plus two soft pools of light: enough depth without a gradient wash */
+  background-image:
+    radial-gradient(60rem 30rem at 15% -10%, rgb(57 255 156 / 0.07), transparent 60%),
+    radial-gradient(50rem 28rem at 100% 0%, rgb(255 77 90 / 0.045), transparent 60%),
+    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px);
+  background-size: auto, auto, 56px 56px, 56px 56px;
+  background-attachment: fixed;
+}
+
+@layer components {
+  .card {
+    position: relative;
+    min-width: 0; /* lets cards shrink inside grids instead of forcing the page wider */
+    border: 1px solid var(--color-line);
+    border-radius: 1rem;
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.028), transparent 40%), var(--color-panel);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 24px 48px -32px rgb(0 0 0 / 0.8);
+  }
+  .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .glow-mint {
+    text-shadow: 0 0 28px rgb(57 255 156 / 0.35);
+  }
+  .glow-coral {
+    text-shadow: 0 0 28px rgb(255 77 90 / 0.28);
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-mint);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: rgb(57 255 156 / 0.3);
+}
+
+.recharts-surface:focus,
+.recharts-wrapper :focus {
+  outline: none;
+}

@@ -1,0 +1,13 @@
+{
+  "version": "v2.1-dev",
+  "extends": "v2.0-dev (models/v2_config.json, unchanged)",
+  "status": "EXPERIMENTAL. Fixed before the first V2.1 experiment (PLAN_V2.md, V2.1 protocol).",
+  "quality_prior_matches": 3,
+  "quality_windows": [3, 5, 10, 20],
+  "trend_windows": [5, 20],
+  "volatility_window": 10,
+  "surface_window": 10,
+  "load_days": 30,
+  "elo_lead_days": 90,
+  "calibration": {"fit_on": "selection-fold predictions 2020-2022", "apply_to": "reporting folds 2023-2024", "methods": ["platt_slope_only", "isotonic_mirrored"]}
+}

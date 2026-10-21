@@ -1,0 +1,7 @@
+# Local use only: the app is reachable from this computer, not from the network.
+[server]
+address = "localhost"
+headless = true
+
+[browser]
+gatherUsageStats = false

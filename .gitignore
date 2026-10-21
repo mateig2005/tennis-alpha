@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.env
+
+# Data: raw/processed files are not committed (licence + size). Re-download via src/ scripts.
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Local build outputs (contain derived licensed data) and private files
+artifacts/
+drafts/
+.claude/
+.streamlit/secrets.toml
+*.pkl
+
+# Forward-evaluation outcomes (PLAN_FORWARD.md): never committed, never displayed before the approved run
+data/protected/
+
+# Local state: prediction log, sync state and logs stay on this Mac
+data/predictions/
+data/sync_state.json
+logs/

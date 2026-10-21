@@ -1,0 +1,10 @@
+pandas==3.0.6
+numpy==2.5.4
+scikit-learn==1.9.1
+scipy==1.18.1
+xgboost==3.4.1
+matplotlib==3.11.2
+streamlit==1.65.0
+fastapi==0.143.0
+uvicorn==0.54.0
+httpx2==2.13.1
