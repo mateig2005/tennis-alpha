@@ -50,10 +50,11 @@ export function PlayerIdentity({ player, detail, surface, tone, align = "left" }
   const right = align === "right";
   const surfaceElo = detail?.surfaceElo[surface];
   return (
-    <div className={`flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:gap-5 ${right ? "items-end sm:flex-row-reverse" : ""}`}>
+    // max-w-full: on the right the column aligns its content to the end, so without it a long name grows past its half and over the other player
+    <div className={`flex min-w-0 max-w-full flex-col gap-3 sm:flex-row sm:items-center sm:gap-5 ${right ? "items-end sm:flex-row-reverse" : ""}`}>
       <Portrait player={player} tone={tone} />
       <div className={`min-w-0 max-w-full ${right ? "text-right" : ""}`}>
-        <p className="truncate text-[22px] leading-tight font-medium tracking-tight sm:text-[32px] xl:text-[38px]">{player.name}</p>
+        <p className="line-clamp-3 text-[22px] leading-tight font-medium tracking-tight break-words sm:text-[32px] xl:text-[38px]" title={player.name}>{player.name}</p>
         <div className={`mt-1.5 flex flex-wrap gap-x-4 gap-y-0.5 text-[12.5px] text-muted ${right ? "justify-end" : ""}`}>
           <span title="Last ranking in the data, not today's">Rank <span className="num text-fg">{player.rank ? `#${player.rank}` : "none"}</span></span>
           <span>Elo <span className="num text-fg">{Math.round(player.elo)}</span></span>
